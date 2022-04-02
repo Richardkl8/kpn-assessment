@@ -1,25 +1,54 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="container">
+    <div class="home">
+      <PhoneCard v-for="phone in phones"
+                 :key="phone.id"
+                 :phone="phone"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue';
-import { mapActions } from 'vuex'; // @ is an alias to /src
+import { mapActions, mapState } from 'vuex';
+import PhoneCard from '@/components/PhoneCard.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld,
+    PhoneCard,
   },
   methods: {
     ...mapActions(['getPhones']),
   },
-  async mounted() {
+  computed: {
+    ...mapState(['phones']),
+  },
+  async created() {
     await this.getPhones();
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.container {
+  display: grid;
+  justify-content: center;
+}
+
+.home {
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  padding: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
