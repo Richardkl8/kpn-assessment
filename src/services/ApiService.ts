@@ -55,7 +55,7 @@ class Http {
   handleError = (error: AxiosResponse) => {
     const { status } = error;
     // In a real project, the console logs would be handled appropriate of course
-    // Displaying an proper error message on the screen, fire an alert to our
+    // Displaying a  proper error message on the screen, fire an alert to our
     // monitoring / analytics etc
     switch (status) {
       case StatusCode.InternalServerError: {
