@@ -70,7 +70,7 @@ export default defineComponent({
     set5g(has5g: boolean): void {
       this.SET_FILTER_HAS5G(has5g);
     },
-    toggleVisibilityFilters() {
+    toggleVisibilityFilters(): void {
       this.showFilters = !this.showFilters;
     },
   },

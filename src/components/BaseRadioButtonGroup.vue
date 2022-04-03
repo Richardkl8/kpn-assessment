@@ -43,6 +43,9 @@ h3 {
 
 input[type=radio] {
   transform: scale(1.2);
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 label {

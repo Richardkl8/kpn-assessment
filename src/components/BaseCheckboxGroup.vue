@@ -59,6 +59,9 @@ h3 {
 
 input[type=checkbox] {
   transform: scale(1.2);
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 label {

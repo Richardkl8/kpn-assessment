@@ -1,6 +1,6 @@
 <template>
   <BaseHeader/>
-    <router-view class="content"/>
+  <router-view class="content"/>
   <BaseFooter/>
 </template>
 
@@ -35,5 +35,4 @@ body {
 .content {
   padding: 8px;
 }
-
 </style>

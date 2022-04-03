@@ -5,7 +5,7 @@
                   :image-path="getImagePath(getPhoneVariant?.id)"
     />
 
-    <p>{{getPromotionLabel}}</p>
+    <p class="phone-promotion" v-show="getPromotionLabel">{{getPromotionLabel}}</p>
 
     <ul class="phone-color-list">
       <li v-for="color in phone.colors" :key="color"
@@ -29,6 +29,17 @@ import { getImagePath } from '@/utils/utils';
 export default defineComponent({
   name: 'PhoneCard',
   components: { ProductImage },
+  watch: {
+    // eslint-disable-next-line func-names
+    'filters.color': function (value) {
+      if (value) {
+        this.selectedColor = value;
+      } else {
+        const [defaultColor] = this.phone.colors;
+        this.selectedColor = defaultColor;
+      }
+    },
+  },
   data() {
     return {
       selectedColor: this.phone.colors[0],
@@ -46,7 +57,7 @@ export default defineComponent({
       return this.phone.variants
         .find((variant: PhoneVariant) => variant.attributes.color === this.selectedColor);
     },
-    getPromotionLabel() {
+    getPromotionLabel(): string | null {
       return this.phone.variants[0].attributes.promotion_label;
     },
   },
@@ -57,13 +68,7 @@ export default defineComponent({
     isColorSelected(color: string): boolean {
       return this.selectedColor === color;
     },
-    setDefaultColor() {
-      this.selectedColor = this.filters.color ? this.filters.color : this.phone.colors[0];
-    },
     getImagePath,
-  },
-  mounted() {
-    this.setDefaultColor();
   },
 });
 </script>
@@ -77,6 +82,19 @@ export default defineComponent({
     padding: 16px;
     border-radius: 8px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-promotion {
+    background-color: $color-green;
+    padding: 8px;
+    border-radius: 32px;
+    color: $color-white;
+    font-weight: bold;
+    margin-top: 16px;
+    font-size: 14px;
   }
 
   &-color-list {
@@ -84,7 +102,7 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     margin: 0;
-    padding: 16px 0 0 0;
+    padding: 0;
 
     li {
       padding: 0 8px;
