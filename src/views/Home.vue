@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="home">
-      <PhoneCard v-for="phone in phones"
+      <PhoneCard v-for="phone in getFilteredPhones"
                  :key="phone.id"
                  :phone="phone"
       />
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import PhoneCard from '@/components/PhoneCard.vue';
 
 export default defineComponent({
@@ -24,8 +24,9 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['phones']),
+    ...mapGetters(['getFilteredPhones']),
   },
-  async created() {
+  async created(): Promise<void> {
     await this.getPhones();
   },
 });
@@ -49,6 +50,10 @@ export default defineComponent({
 @media screen and (max-width: 767px) {
   .home {
     grid-template-columns: 1fr;
+  }
+
+  .container {
+    display: block;
   }
 }
 </style>
