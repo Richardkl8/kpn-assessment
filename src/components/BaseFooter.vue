@@ -5,8 +5,9 @@
 </template>
 
 <style lang="scss" scoped>
+@import "../styles/colors";
   footer {
-    background-color: #232323;
+    background-color: $color-black;
     height: 100px;
     margin-top: 16px;
     display: grid;

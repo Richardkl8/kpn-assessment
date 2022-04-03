@@ -19,6 +19,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import "styles/colors";
 body {
   margin: 0;
 }
@@ -27,8 +28,8 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #1a1c1f;
-  background-color: #f4f4f4;
+  color: $color-black;
+  background-color: $color-light-grey;
 }
 
 .content {

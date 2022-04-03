@@ -5,8 +5,9 @@
 </template>
 
 <style lang="scss" scoped>
+@import "../styles/colors";
   header {
-    background-color: #090;
+    background-color: $color-green;
     height: 80px;
     margin-bottom: 16px;
     display: grid;

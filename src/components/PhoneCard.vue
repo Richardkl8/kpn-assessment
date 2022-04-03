@@ -68,9 +68,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/colors";
+
 .phone {
   &-card {
-    background: #fff;
+    background: $color-white;
     padding: 16px;
     border-radius: 8px;
     text-align: center;
@@ -84,14 +86,14 @@ export default defineComponent({
     padding: 16px 0 0 0;
 
     li {
-      padding: 0 10px;
+      padding: 0 8px;
       &:hover {
         cursor: pointer;
       }
     }
 
     &-item-active {
-      color: red;
+      color: $color-green;
     }
   }
 }

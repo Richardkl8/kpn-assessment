@@ -7,8 +7,7 @@
     <section class="phones">
       <PhoneCard v-for="phone in getFilteredPhones"
                  :key="phone.id"
-                 :phone="phone"
-      />
+                 :phone="phone"/>
     </section>
   </div>
 </template>

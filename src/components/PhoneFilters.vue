@@ -81,9 +81,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/colors";
 .phone {
   &-filters {
-    background-color: #fff;
+    background-color: $color-white;
     border-radius: 8px;
     padding: 16px;
     display: grid;
@@ -92,8 +93,8 @@ export default defineComponent({
   }
 }
 .minimized-phone-filters {
-  background-color: darkslategray;
-  color: white;
+  background-color: $color-purple;
+  color: $color-white;
   padding: 8px;
   text-align: center;
   border-radius: 8px;
@@ -108,7 +109,7 @@ export default defineComponent({
   top: 10px;
   font-weight: bold;
   font-size: 26px;
-  color: #1a1c1f;
+  color: $color-black;
   border: none;
   background-color: transparent;
 
