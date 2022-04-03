@@ -37,7 +37,7 @@ import filterOptions from '@/utils/filterOptions';
 import BaseRadioButtonGroup from '@/components/BaseRadioButtonGroup.vue';
 import BaseCheckboxGroup from '@/components/BaseCheckboxGroup.vue';
 import { mapMutations, mapState } from 'vuex';
-import { Manufacturer, PhoneColor } from '@/store/store';
+import { Manufacturer, PhoneColor } from '@/enums/enums';
 
 export default defineComponent({
   name: 'PhoneFilters',

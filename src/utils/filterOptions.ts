@@ -1,4 +1,4 @@
-import { SortingPreference, Manufacturer, PhoneColor } from '@/store/store';
+import { SortingPreference, Manufacturer, PhoneColor } from '@/enums/enums';
 
 export default {
   sortingPreference: [

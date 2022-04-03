@@ -1,26 +1,7 @@
-// eslint-disable-next-line max-len
-/* eslint no-shadow: ["error", { "allow": ["state", "SortingPreference", "PhoneColor", "getters", "Manufacturer"] }] */
+/* eslint no-shadow: ["error", { "allow": ["state", "getters"] }] */
 import { createStore, Commit } from 'vuex';
 import { getPhones, Phone } from '@/services/PhoneService';
-
-export enum SortingPreference {
-  MOST_SOLD = 'MOST_SOLD',
-  DATE = 'DATE',
-  PROMOTION = 'PROMOTION',
-}
-
-export enum PhoneColor {
-  BLACK = 'ZWART',
-  WHITE = 'WIT',
-  GREY = 'GRIJS',
-}
-
-export enum Manufacturer {
-  SAMSUNG = 'Samsung',
-  OPPO = 'OPPO',
-  APPLE = 'Apple',
-  MOTOROLA = 'Motorola'
-}
+import { Manufacturer, PhoneColor, SortingPreference } from '@/enums/enums';
 
 export interface State {
   phones: Phone[];
