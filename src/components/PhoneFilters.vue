@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import filterOptions from '@/filterOptions/filterOptions';
+import filterOptions from '@/utils/filterOptions';
 import BaseRadioButtonGroup from '@/components/BaseRadioButtonGroup.vue';
 import BaseCheckboxGroup from '@/components/BaseCheckboxGroup.vue';
 import { mapMutations, mapState } from 'vuex';

@@ -1,10 +1,10 @@
 <template>
   <div class="phone-card">
     <h3 class="phone-name">{{ phone.name }}</h3>
-    <PhoneImage :image-alt="getPhoneVariant?.name"
-                :image-id="getPhoneVariant?.id"/>
+    <ProductImage :image-alt="getPhoneVariant?.name"
+                  :image-path="getImagePath(getPhoneVariant?.id)"/>
 
-    <p>{{phone.variants[0].attributes.promotion_label}}</p>
+    <p>{{getPromotionLabel}}</p>
 
     <ul class="phone-color-list">
       <li v-for="color in phone.colors" :key="color"
@@ -15,19 +15,19 @@
         </h5>
       </li>
     </ul>
-
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import PhoneImage from '@/components/PhoneImage.vue';
+import ProductImage from '@/components/ProductImage.vue';
 import { PhoneVariant, Phone } from '@/services/PhoneService';
 import { mapState } from 'vuex';
+import { getImagePath } from '@/utils/utils';
 
 export default defineComponent({
   name: 'CardPhone',
-  components: { PhoneImage },
+  components: { ProductImage },
   data() {
     return {
       selectedColor: this.phone.colors[0],
@@ -45,6 +45,9 @@ export default defineComponent({
       return this.phone.variants
         .find((variant: PhoneVariant) => variant.attributes.color === this.selectedColor);
     },
+    getPromotionLabel() {
+      return this.phone.variants[0].attributes.promotion_label;
+    },
   },
   methods: {
     setPhoneColor(color: string): void {
@@ -56,6 +59,7 @@ export default defineComponent({
     setDefaultColor() {
       this.selectedColor = this.filters.color ? this.filters.color : this.phone.colors[0];
     },
+    getImagePath,
   },
   mounted() {
     this.setDefaultColor();

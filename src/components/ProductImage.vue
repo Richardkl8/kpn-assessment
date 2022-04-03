@@ -1,8 +1,8 @@
 <template>
-  <div class="phone-image">
-    <img :src="getImagePath"
+  <div class="product-image">
+    <img :src="imagePath"
          :alt="imageAlt"
-         class="phone-image"
+         class="product-image"
          loading="lazy"
          >
   </div>
@@ -12,10 +12,10 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'PhoneImage',
+  name: 'ProductImage',
   props: {
-    imageId: {
-      type: Number,
+    imagePath: {
+      type: String,
       required: true,
     },
     imageAlt: {
@@ -23,20 +23,11 @@ export default defineComponent({
       default: 'telefoon',
     },
   },
-  computed: {
-    getImagePath() {
-      return this.imageId
-        // eslint-disable-next-line
-        ? require(`@/assets/product_${this.imageId}_main.webp`)
-        // eslint-disable-next-line global-require
-        : require('@/assets/no_picture_available.png');
-    },
-  },
 });
 </script>
 
 <style lang="scss" scoped>
-  .phone {
+  .product {
     &-image {
       height: 200px;
 
