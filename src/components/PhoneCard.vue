@@ -85,6 +85,7 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 374px
   }
 
   &-promotion {
@@ -114,6 +115,12 @@ export default defineComponent({
     &-item-active {
       color: $color-green;
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .phone-card{
+    min-width: 0;
   }
 }
 </style>

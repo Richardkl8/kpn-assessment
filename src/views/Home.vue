@@ -52,7 +52,7 @@ export default defineComponent({
   max-width: 1250px;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1268px) {
   .phones {
     grid-template-columns: 1fr 1fr;
   }
