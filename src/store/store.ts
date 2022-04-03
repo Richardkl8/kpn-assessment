@@ -43,13 +43,12 @@ export const state = {
   filters: {
     manufacturer: null,
     color: null,
-    has5g: true,
+    has5g: null,
   },
 };
 
 export const getters = {
   getSortedPhones(state: State): Phone[] {
-    console.log(1);
     let sortedArray = [] as Phone[] | [];
     switch (state.phoneOrder) {
       case SortingPreference.DATE:
@@ -95,6 +94,18 @@ export const getters = {
 export const mutations = {
   SET_PHONES(state: State, payload: Phone[]): void {
     state.phones = payload;
+  },
+  SET_PHONE_ORDER(state: State, payload: SortingPreference): void {
+    state.phoneOrder = payload;
+  },
+  SET_FILTER_MANUFACTURER(state: State, payload: Manufacturer): void {
+    state.filters.manufacturer = payload;
+  },
+  SET_FILTER_COLOR(state: State, payload: PhoneColor): void {
+    state.filters.color = payload;
+  },
+  SET_FILTER_HAS5G(state: State, payload: boolean): void {
+    state.filters.has5g = payload;
   },
 };
 
