@@ -2,7 +2,7 @@ import { http } from '@/services/ApiService';
 
 /* eslint-disable camelcase */
 
-type PhoneAttributes = {
+export type PhoneAttributes = {
   handset_cat_promotion_sticker: string | null;
   promotion_label: string | null;
   promotion_slider_source: string | null;
@@ -24,7 +24,7 @@ export type PhoneVariant = {
   id: number;
   name: string;
   slug: string;
-  next_ship_date: string;
+  next_ship_date: string | null;
   attributes: VariantAttributes;
   ui_suggested_sort_order: number;
 }
