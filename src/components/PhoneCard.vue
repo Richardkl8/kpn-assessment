@@ -1,8 +1,9 @@
 <template>
-  <div class="phone-card">
+  <div class="phone-card" data-cy="phone-card">
     <h3 class="phone-name">{{ phone.name }}</h3>
     <ProductImage :image-alt="getPhoneVariant?.name"
-                  :image-path="getImagePath(getPhoneVariant?.id)"/>
+                  :image-path="getImagePath(getPhoneVariant?.id)"
+    />
 
     <p>{{getPromotionLabel}}</p>
 
@@ -26,7 +27,7 @@ import { mapState } from 'vuex';
 import { getImagePath } from '@/utils/utils';
 
 export default defineComponent({
-  name: 'CardPhone',
+  name: 'PhoneCard',
   components: { ProductImage },
   data() {
     return {

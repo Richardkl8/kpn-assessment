@@ -1,9 +1,12 @@
 <template>
-  <div v-show="!showFilters" @click="toggleVisibilityFilters()" class="minimized-phone-filters">
+  <div v-show="!showFilters" @click="toggleVisibilityFilters()"
+       class="minimized-phone-filters" data-cy="show-filters-button">
     <h3>Toon filters</h3>
   </div>
 
-  <div class="phone-filters" :class="{'phone-filters-show': showFilters}">
+  <div class="phone-filters"
+       :class="{'phone-filters-show': showFilters}"
+       data-cy="filters">
     <button @click="toggleVisibilityFilters" class="phone-filters-close-btn">X</button>
     <BaseRadioButtonGroup
       title="Sorteren"
@@ -105,7 +108,7 @@ export default defineComponent({
 
 .phone-filters-close-btn {
   position: absolute;
-  right: 32px;
+  right: 16px;
   top: 10px;
   font-weight: bold;
   font-size: 26px;
