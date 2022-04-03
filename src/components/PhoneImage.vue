@@ -1,7 +1,7 @@
 <template>
   <div class="phone-image">
     <img :src="getImagePath"
-         alt="phone image"
+         :alt="imageAlt"
          class="phone-image"
          loading="lazy"
          >
@@ -17,6 +17,10 @@ export default defineComponent({
     imageId: {
       type: Number,
       required: true,
+    },
+    imageAlt: {
+      type: String,
+      default: 'telefoon',
     },
   },
   computed: {
@@ -35,6 +39,10 @@ export default defineComponent({
   .phone {
     &-image {
       height: 200px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 </style>

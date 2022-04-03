@@ -1,7 +1,10 @@
 <template>
   <div class="phone-card">
     <h3 class="phone-name">{{ phone.name }}</h3>
-    <PhoneImage :image-id="getPhoneVariant?.id"/>
+    <PhoneImage :image-alt="getPhoneVariant?.name"
+                :image-id="getPhoneVariant?.id"/>
+
+    <p>{{phone.variants[0].attributes.promotion_label}}</p>
 
     <ul class="phone-color-list">
       <li v-for="color in phone.colors" :key="color"
@@ -20,6 +23,7 @@
 import { defineComponent } from 'vue';
 import PhoneImage from '@/components/PhoneImage.vue';
 import { PhoneVariant, Phone } from '@/services/PhoneService';
+import { mapState } from 'vuex';
 
 export default defineComponent({
   name: 'CardPhone',
@@ -36,6 +40,7 @@ export default defineComponent({
     },
   },
   computed: {
+    ...mapState(['filters']),
     getPhoneVariant(): PhoneVariant | undefined {
       return this.phone.variants
         .find((variant: PhoneVariant) => variant.attributes.color === this.selectedColor);
@@ -48,6 +53,12 @@ export default defineComponent({
     isColorSelected(color: string): boolean {
       return this.selectedColor === color;
     },
+    setDefaultColor() {
+      this.selectedColor = this.filters.color ? this.filters.color : this.phone.colors[0];
+    },
+  },
+  mounted() {
+    this.setDefaultColor();
   },
 });
 </script>
@@ -70,6 +81,9 @@ export default defineComponent({
 
     li {
       padding: 0 10px;
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &-item-active {

@@ -43,6 +43,7 @@ export type Phone = {
   has_esim: boolean;
   colors: string[];
   sort_order: number;
+  release_date: string;
   variants: PhoneVariant[];
   attributes: PhoneAttributes;
   has_promotion: boolean;
