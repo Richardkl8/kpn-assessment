@@ -35,9 +35,7 @@ export const getters = {
       case SortingPreference.DATE:
         sortedArray = state.phones
           .slice()
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          .sort((a, b) => new Date(a.release_date) + new Date(b.release_date));
+          .sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
         break;
       case SortingPreference.PROMOTION:
         sortedArray = state.phones

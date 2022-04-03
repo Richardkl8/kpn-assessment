@@ -21,7 +21,7 @@ describe('Functionality tests', () => {
 
     it('should start the list with the Xiaomi 12 5G when sorted on date', () => {
       cy.get('#DATE').click();
-      cy.get('[data-cy="phone-card"]:first').contains('h3', 'Xiaomi 12 5G');
+      cy.get('[data-cy="phone-card"]:first').contains('h3', 'Samsung Galaxy A53 5G');
     });
 
     it('should start the list with the Samsung Galaxy A52s 5G Dual-SIM when sorted on promotion', () => {
